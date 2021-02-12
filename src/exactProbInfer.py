@@ -16,8 +16,8 @@ class exactProbInfer(object):
     def solve(self):
         self.sampling_control.add("base", [], self.content)
         self.sampling_control.ground([("base", [])])
-        self.sampling_control.solve([], lambda model: self.models.append(model.symbols(atoms=True)))
-
+        #self.sampling_control.solve([], lambda model: self.models.append(model.symbols(atoms=True)))
+        self.sampling_control.solve([], lambda model: print("hello"))
         self.grounded_query = []
         for atom in self.sampling_control.symbolic_atoms:
             if atom.symbol.name in self.query:
